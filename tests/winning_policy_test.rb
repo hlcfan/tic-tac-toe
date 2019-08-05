@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../policies/winning_policy'
+require_relative '../winning_policy'
 
 class TestWinningPolicy < Minitest::Test
 

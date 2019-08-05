@@ -6,7 +6,7 @@ require_relative '../game'
 class TestGame < Minitest::Test
 
   def setup
-    command = %q(ruby -e "load 'game.rb';Game.new([1,2,3,4,5,6,7,8,9], 3).start")
+    command = %q(ruby -e "load 'game.rb';Game.new(3).start")
     @pty = PTY.spawn(command)
   end
 

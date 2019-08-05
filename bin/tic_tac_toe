@@ -5,6 +5,5 @@ game_size = ARGV[0].to_i
 if game_size < 3
   puts "Invalid input, game board should at least be 3."
 else
-  board = 1.upto(game_size*game_size).to_a
-  Game.new(board, game_size).start
+  Game.new(game_size).start
 end

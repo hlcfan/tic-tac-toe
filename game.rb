@@ -1,9 +1,9 @@
 require 'readline'
-require_relative 'policies/winning_policy'
+require_relative 'winning_policy'
 
 class Game
-  def initialize board, game_size
-    @board = board
+  def initialize game_size
+    @board = 1.upto(game_size*game_size).to_a
     @game_size = game_size
     @counter = 0
     @number_of_players = 2
