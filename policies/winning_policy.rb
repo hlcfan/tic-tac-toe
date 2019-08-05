@@ -64,7 +64,6 @@ class WinningPolicy
 
   def generate_rules points
     points.inject([]) do |res, rule|
-      # binding.pry
       0.upto(rule.length - 3).map do |i|
         res << [rule[i], rule[i+1], rule[i+2]]
       end

@@ -1,7 +1,6 @@
 # ♟Tic tac toe
 
-A text based 2­player tic­tac­toe game. The players would need to take turns at placing an X or an O on a 3X3 board.
-Link: [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
+A text based 2­ player tic­-tac-­toe game. The players would need to take turns at placing an X or an O on a 3X3 board. [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
 
 ## Game rules
 1. Player 1’s marker is ‘X’, Player 2’s marker is ‘O’.

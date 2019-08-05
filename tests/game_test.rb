@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'timeout'
 require 'pty'
-require 'stringio'
 require_relative '../game'
 
 class TestGame < Minitest::Test

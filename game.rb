@@ -1,6 +1,5 @@
 require 'readline'
 require_relative 'policies/winning_policy'
-require 'pry'
 
 class Game
   def initialize board, game_size
@@ -32,6 +31,7 @@ class Game
 
     input
   end
+
   private
 
   def initialize_players
@@ -59,7 +59,7 @@ class Game
   def parse_user_input
     puts "#{user}, choose a box to place an '#{marker}' into:"
     input = read_input_from_stdin
-    puts "===Input: #{input}"
+
     if !( input =~ /\A\d+\z/ )
       raise ArgumentError, "Invalid input"
     end
