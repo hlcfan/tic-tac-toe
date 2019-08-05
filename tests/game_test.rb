@@ -19,8 +19,6 @@ class TestGame < Minitest::Test
   end
 
   def test_winning_case
-    command = %q(ruby -e "load 'game.rb';Game.new([1,2,3,4,5,6,7,8,9], 3).start")
-    @pty = PTY.spawn(command)
     run_command @pty, "Alex\n"
     run_command @pty, "Bob\n"
     run_command @pty, "1"
@@ -32,8 +30,6 @@ class TestGame < Minitest::Test
   end
 
   def test_invalid_input
-    command = %q(ruby -e "load 'game.rb';Game.new([1,2,3,4,5,6,7,8,9], 3).start")
-    @pty = PTY.spawn(command)
     run_command @pty, "Alex\n"
     run_command @pty, "Bob\n"
     run_command @pty, "18\n"
@@ -43,6 +39,21 @@ class TestGame < Minitest::Test
     assert_equal(fetch_stdout(@pty, 2), "Invalid input range\r\nAlex, choose a box to place an 'X' into:\r\n")
     run_command @pty, "abc"
     assert_equal(fetch_stdout(@pty, 2), "Invalid input\r\nAlex, choose a box to place an 'X' into:\r\n")
+  end
+
+  def test_even_case
+    run_command @pty, "Alex\n"
+    run_command @pty, "Bob\n"
+    run_command @pty, "1"
+    run_command @pty, "4"
+    run_command @pty, "7"
+    run_command @pty, "2"
+    run_command @pty, "3"
+    run_command @pty, "5"
+    run_command @pty, "6"
+    run_command @pty, "9"
+    run_command @pty, "8"
+    assert_equal(fetch_stdout(@pty), "Board is full, existing.\r\n")
   end
 
   private

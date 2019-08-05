@@ -18,6 +18,7 @@ class Game
       begin
         point = parse_user_input
         place_marker(point - 1)
+        check_board_status
       rescue RuntimeError, ArgumentError, NoMethodError => e
         puts e
         retry
@@ -111,6 +112,13 @@ class Game
       puts "-"*11
     end
     puts
+  end
+
+  def check_board_status
+    if !@board.any?(Integer)
+      puts "Board is full, existing."
+      exit 0
+    end
   end
 end
 
