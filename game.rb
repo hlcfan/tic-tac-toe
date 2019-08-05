@@ -122,9 +122,3 @@ class Game
   end
 end
 
-
-# n = 4
-# array = (1..16).to_a
-# game = Game.new array, n
-# game.start
-
