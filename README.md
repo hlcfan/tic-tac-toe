@@ -14,3 +14,17 @@ A text based 2­ player tic­-tac-­toe game. The players would need to take tur
 ```
 bin/tic_tac_toe N # N represents the game size, starts from 3.
 ```
+
+## WIP
+
+Cover cases for following diagonal situations
+
+1  2  3  4
+**5**  6  7  8
+9  **10** 11 12
+13 14 **15** 16
+
+1  **2**  3  4
+5  6  **7**  8
+9  10 11 **12**
+13 14 15 16
