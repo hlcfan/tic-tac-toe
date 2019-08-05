@@ -1,3 +1,5 @@
+require 'set'
+
 class WinningPolicy
 
   def initialize board_size, game_size
@@ -29,24 +31,26 @@ class WinningPolicy
 
   def winning_rows
     size = @board_size - 1
-    0.upto(size).each_slice(@game_size).to_a
+    winning_points = 0.upto(size).each_slice(@game_size).to_a
+
+    generate_rules winning_points
   end
 
   def winning_cols
     size = @board_size - 1
-    winning_cols = []
+    winning_points = []
     0.upto(size).each do |i|
-      winning_cols[i%@game_size] ||= []
-      winning_cols[i%@game_size] << i
+      winning_points[i%@game_size] ||= []
+      winning_points[i%@game_size] << i
     end
 
-    winning_cols
+    generate_rules winning_points
   end
 
   def winning_diagonals
     size = @board_size - 1
 
-    [
+    winning_points = [
       0.upto(@game_size-1).map do |i|
         i*@game_size + i
       end,
@@ -54,6 +58,19 @@ class WinningPolicy
         i*@game_size + @game_size - i - 1
       end
     ]
+
+    generate_rules winning_points
+  end
+
+  def generate_rules points
+    points.inject([]) do |res, rule|
+      # binding.pry
+      0.upto(rule.length - 3).map do |i|
+        res << [rule[i], rule[i+1], rule[i+2]]
+      end
+
+      res
+    end
   end
 end
 
